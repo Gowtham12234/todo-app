@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="stylesheet" href="./styles/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <div class="company-name">
+          <h1>To Do list</h1>
+        </div>
+        <div class="nav-menu">
+          <li class="nav-items">
+            <a href="" class="nav-links">Home</a>
+          </li>
+          <li class="nav-items">
+            <a href="./login.html" class="nav-links">Log-in</a>
+          </li>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="input-container">
+        <div class="task-input-container">
+          <input
+            type="text"
+            class="task-input"
+            id="task-input"
+            placeholder="enter new task"
+          />
+          <input type="date" class="date" id="date-input" />
+          <input type="time" class="time" id="time-input" />
+          <button class="add-task-btn" id="add-task-btn">Add Task..</button>
+        </div>
+        <div class="task-filter">
+          <select name="filter" id="filter" class="filter">
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            
+            <option value="not completed">Not completed</option>
+          </select>
+        </div>
+      </div>
+      <div class="task-display-container">
+        <div class="task-container"></div>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+  <script src="script.js"></script>
+</html>

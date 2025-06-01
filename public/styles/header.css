@@ -1,0 +1,30 @@
+header {
+  background-color: rgb(221, 217, 217);
+  padding: 5px 20px;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 10px grey;
+}
+header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .navbar .nav-menu {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  align-items: center;
+}
+header .navbar .nav-menu .nav-items {
+  list-style: none;
+  text-decoration: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+}
+header .navbar .nav-menu .nav-items .nav-links {
+  color: inherit;
+  text-decoration: inherit;
+  outline: none;
+}
