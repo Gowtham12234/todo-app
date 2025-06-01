@@ -1,3 +1,7 @@
-## 🚀 Live Demo
+# Todo App
 
-[Click here to view the live app]([https://todo-app-delta-tan-33.vercel.app/login.html](https://todo-app-5-2gd0.onrender.com/login.html))
+This is a simple web-based Todo application with login and task management.
+
+## 🔗 Live Demo
+
+[Click here to open the Todo App](https://todo-app-5-2gd0.onrender.com/login.html)
