@@ -7,7 +7,10 @@ const Task = require("./models/Task");
 
 const app = express();
 const port = 3000;
-mongoose.connect("mongodb+srv://2203031240218:OjgYBNZAnPAnrESp@todo-app.xupsaqr.mongodb.net/?retryWrites=true&w=majority&appName=todo-app");
+mongoose.connect("mongodb+srv://2203031240218:OjgYBNZAnPAnrESp@todo-app.xupsaqr.mongodb.net/?retryWrites=true&w=majority&appName=todo-app"),, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+};
 
 //used to parse data sent in requests
 
