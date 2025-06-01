@@ -1,11 +1,10 @@
 const username = localStorage.getItem("username");
 let loadedTasks = []; // to keep all tasks globally
 
-
 //checking for user loggedin or not
 
-if (!username && !location.pathname.includes("/login.html")) {
-  window.location.href = "login.html";
+if (!username && !location.pathname.includes("/index.html")) {
+  window.location.href = "signup.html";
 }
 
 //login
@@ -59,10 +58,10 @@ async function loadtasks() {
     body: JSON.stringify({ username }),
   });
   const data = await res.json();
-  loadedTasks = data.tasks;  // store tasks globally
+  loadedTasks = data.tasks; // store tasks globally
   renderTasks(loadedTasks);
 }
-  
+
 function renderTasks(tasks) {
   const container = document.querySelector(".task-display-container");
 
@@ -76,7 +75,11 @@ function renderTasks(tasks) {
           <p class="task-time">${t.time}</p>
         </div>
         <div class="task-status">
-          ${t.completed ? '<span>Completed</span>' : `<button class="task-completed" data-id="${t._id}">Mark as Completed</button>`}
+          ${
+            t.completed
+              ? "<span>Completed</span>"
+              : `<button class="task-completed" data-id="${t._id}">Mark as Completed</button>`
+          }
         </div>
         <div class="task-delete-container">
           <button class="task-delete" data-id="${t._id}">Delete</button>
@@ -104,7 +107,6 @@ function renderTasks(tasks) {
       await deleteTask(id);
     });
   });
-
 }
 document.getElementById("filter")?.addEventListener("change", () => {
   const filterValue = document.getElementById("filter").value.toLowerCase();
@@ -112,27 +114,21 @@ document.getElementById("filter")?.addEventListener("change", () => {
   let filteredTasks = loadedTasks;
 
   if (filterValue === "completed") {
-  filteredTasks = loadedTasks.filter(task => task.completed);
-} else if (filterValue === "not completed") {
-  filteredTasks = loadedTasks.filter(task => !task.completed);
-} else {
-  filteredTasks = loadedTasks; // for "all" or unknown option
-}
+    filteredTasks = loadedTasks.filter((task) => task.completed);
+  } else if (filterValue === "not completed") {
+    filteredTasks = loadedTasks.filter((task) => !task.completed);
+  } else {
+    filteredTasks = loadedTasks; // for "all" or unknown option
+  }
 
-  console.log("Filtered tasks:", filteredTasks); // 
+  console.log("Filtered tasks:", filteredTasks); //
   if (tasks.length === 0) {
-  container.innerHTML = "<p>No tasks found.</p>";
-  return;
-}
+    container.innerHTML = "<p>No tasks found.</p>";
+    return;
+  }
 
   renderTasks(filteredTasks);
-  
-
 });
-
-
-
-
 
 //mark as completed
 
