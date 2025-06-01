@@ -4,6 +4,9 @@ let loadedTasks = []; // to keep all tasks globally
 //checking for user loggedin or not
 
 if (!username && !location.pathname.includes("/index.html")) {
+  window.location.href = "login.html";
+}
+if (!username && !location.pathname.includes("/signup.html")) {
   window.location.href = "signup.html";
 }
 
