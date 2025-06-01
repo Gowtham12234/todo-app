@@ -1,7 +1,7 @@
-# Todo App
+# ✅ Todo App
 
-This is a simple web-based Todo application with login and task management.
+A simple task management app with login, signup, and task filtering features.
 
 ## 🔗 Live Demo
 
-[Click here to open the Todo App]((https://todo-app-5-2gd0.onrender.com))
+[🚀 Open the Todo App](https://todo-app-5-2gd0.onrender.com)
