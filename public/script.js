@@ -14,8 +14,6 @@ if (
   window.location.href = "login.html";
 }
 
-
-
 //login
 
 document.querySelector(".login-btn")?.addEventListener("click", async () => {
@@ -51,7 +49,7 @@ document.getElementById("signup-btn")?.addEventListener("click", async () => {
   });
   const data = await res.json();
   if (data.success) {
-    alert("DONE WITH THE SIGNUP MOVE TOWARS LOGIN ");
+    alert("DONE WITH THE SIGNUP MOVE TOWARdS LOGIN ");
     window.location.href = "login.html";
   } else {
     alert("signup failed" + data.message);
@@ -76,8 +74,11 @@ function renderTasks(tasks) {
 
   let allTasksHtml = "";
   tasks.forEach((t) => {
+    
     allTasksHtml += `
+    
       <div class="task-container">
+      
         <p class="task">${t.task}</p>
         <div class="task-time">
           <p class="task-date">${t.date}</p>
@@ -86,7 +87,7 @@ function renderTasks(tasks) {
         <div class="task-status">
           ${
             t.completed
-              ? "<span>Completed</span>"
+              ? "<span>✅Completed</span>"
               : `<button class="task-completed" data-id="${t._id}">Mark as Completed</button>`
           }
         </div>
@@ -196,3 +197,36 @@ document.querySelector(".add-task-btn")?.addEventListener("click", async () => {
     alert("Failed to add task");
   }
 });
+
+function toggleSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  sidebar.classList.toggle("show");
+  overlay.classList.toggle("hidden");
+}
+function updatesidebarinfo() {
+  document.getElementById("sidebar-username").textContent =
+    localStorage.getItem("username");
+  document.getElementById("task-count").textContent = loadedTasks.length;
+  document.getElementById("completed-count").textContent = loadedTasks.filter(
+    (t) => t.completed
+  ).length;
+  document.getElementById("pending-count").textContent = loadedTasks.filter(
+    (t) => !t.completed
+  ).length;
+}
+if (location.pathname.includes("index")) {
+  loadtasks().then(updatesidebarinfo);
+}
+document.getElementById("overlay").addEventListener("click", () => {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  sidebar.classList.remove("show");
+  overlay.classList.add("hidden");
+});
+
+function logout() {
+  localStorage.removeItem("username");
+  window.location.href = "login.html";
+}

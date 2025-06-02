@@ -10,6 +10,7 @@
     <header>
       <div class="navbar">
         <div class="company-name">
+          <div class="menu" onclick="toggleSidebar()">☰</div>
           <h1>To Do list</h1>
         </div>
         <div class="nav-menu">
@@ -19,12 +20,24 @@
           <li class="nav-items">
             <a href="./login.html" class="nav-links">Log-in</a>
           </li>
-          <li class="nav-items">
-            <a href="./login.html" class="nav-links">Log-out</a>
-          </li>
         </div>
       </div>
     </header>
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-content">
+        <h2>User Profile</h2>
+        <p>
+          <strong>Username:</strong><span class="" id="sidebar-username"></span>
+        </p>
+        <p>
+          <strong>Total Tasks:</strong>0<span class="" id="task-count"></span>
+        </p>
+        <p><strong>Completed:</strong><span id="completed-count"></span></p>
+        <p><strong>pending:</strong><span id="pending-count"></span></p>
+        <button class="logout-btn" onclick="logout()">log-out</button>
+      </div>
+    </div>
+    <div id="overlay" class="overlay hidden"></div>
     <main>
       <div class="input-container">
         <div class="task-input-container">
